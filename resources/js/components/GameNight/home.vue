@@ -1,8 +1,10 @@
 <template>
-    <div class="p-20">This is game night home</div>
-    <button @click="testquery">Load Games</button>
-    <div v-for="(items) in this.test">{{ items['Name'] }}</div>
-    <button @click="testpost(this.post)"></button>
+    <body>
+        <div class="p-20">This is game night home</div>
+        <button @click="testquery">Load Games</button>
+        <div v-for="(items) in this.test">{{ items['Name'] }}</div>
+        <button @click="testpost(this.post)"></button>
+    </body>
 </template>
 
 <script>

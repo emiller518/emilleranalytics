@@ -1,16 +1,19 @@
 <template>
-    <get />
+    <Header />
     <router-view />
+    <Footer />
     
 </template>
 
 <script>
-import get from './components/header.vue'
+import Header from './components/header.vue'
+import Footer from './components/footer.vue'
 
 export default {
     name: 'app',
     components: {
-        get,
+        Header,
+        Footer
     },
 }
 </script>
