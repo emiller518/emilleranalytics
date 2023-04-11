@@ -8,25 +8,13 @@
                 <span class="caption">Data science, sports analysis, python programming and more</span>
             </div>
 
-            <article class="post-preview">
-                <h2 class="post-title">D2 Basketball Stuff</h2>
-                <h3 class="post-subtitle">Hello this is the stuff that I'm posting</h3>
-                <p class="post-date">1/1/2023</p>
+            <article v-for="(post) in this.allPortfolioPosts" class="post-preview">
+                <h2 class="post-title">{{post.Title}}</h2>
+                <h3 class="post-subtitle">{{post.SubHeader}}</h3>
+                <p class="post-date">{{post.CreatedOn}}</p>
 
-                <p><img src="/img/portfolio/analysis.png" class="post-img" alt="asdf">
-                    test <a href="test.com"><b>[Read More]</b></a>
-                </p>
-
-                <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
-            </article>
-
-            <article class="post-preview">
-                <h2 class="post-title">D2 Basketball Stuff</h2>
-                <h3 class="post-subtitle">Hello this is the stuff that I'm posting</h3>
-                <p class="post-date">1/1/2023</p>
-
-                <p><img src="/img/portfolio/analysis.png" class="post-img" alt="asdf">
-                    test <a href="test.com"><b>[Read More]</b></a>
+                <p><img v-bind:src="'/img/portfolio/' + post.Image" class="post-img" alt="asdf">
+                    {{post.PageHeader}}&nbsp;<a href="#"><b>[Read More]</b></a>
                 </p>
 
                 <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
@@ -34,20 +22,46 @@
 
             <div class="pagelinks">
             <p style="text-align:left; padding-top:40px; padding-bottom:40px; font-size: 24px; font-weight:30;">
-                    <a href="#">L Newer Posts</a>
+                    <a href="#">&#8592; Newer Posts</a>
                 <span style="float:right;">
-                        <a href="#">Older Posts ></a>
+                        <a href="#">Older Posts &#8594;</a>
                 </span>
             </p>
             </div>
-
+            
         </div>
     </body>
 </template>
 
 <script>
+import ApiService from "../../services/api/EMillerAnalytics/api";
 export default {
     name: 'Home',
+    props: {
+    },
+    created() {
+        this.apiService = ApiService.make();
+        this.getAllPortfolioPosts();
+        
+    },
+    data: function() {
+        return {
+            apiService: null,
+            changeLog: [],
+
+            allPortfolioPosts: {},
+        }
+    },
+    
+    methods: {
+        getAllPortfolioPosts(){
+            this.apiService.getAllPortfolioPosts().then(
+                response => {this.allPortfolioPosts = response['data']}
+            )
+        },
+    }
+
+
 }
 </script>
 

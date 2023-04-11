@@ -7,31 +7,19 @@
                 <hr>
                 <span class="caption">A collection of blog posts related to travel, sports, and other experiences over the years</span>
             </div>
+            
+            <div v-for="(post) in this.allBlogPosts" class="row blogpost">
 
-            <div class="row blogpost">
-                <div class="col-lg-4 blogimg" style="background-image: url('/img/blog/2016nbafinals1.jpg')">
-                </div>
-
+                <div class="col-lg-4 blogimg" v-bind:style="{ 'background-image': 'url(/img/blog/' + post.Image + ')' }"></div>
+                
                 <div class="col-lg-8 blogtext">
-                    <h3>Blog Title</h3>
-                    <p>Posted on 4/9/2023</p>
-                    <p>This is the pagehead! This is what I'm talking about <a href="#"><b>[Read More]</b></a></p>
+                    <h3>{{post.Title}}</h3>
+                    <p>Posted on {{post.CreatedOn}}</p>
+                    <p>{{post.PageHeader}}&nbsp;<a href="#"><b>[Read More]</b></a></p>
 
                     <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
                 </div>
-            </div>
-
-            <div class="row blogpost">
-                <div class="col-lg-4 blogimg" style="background-image: url('/img/blog/2016nbafinals1.jpg')">
-                </div>
-
-                <div class="col-lg-8 blogtext">
-                    <h3>Blog Title</h3>
-                    <p>Posted on 4/9/2023</p>
-                    <p>This is the pagehead! This is what I'm talking about <a href="#"><b>[Read More]</b></a></p>
-
-                    <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
-                </div>
+                
             </div>
 
             <p style="text-align:left; padding-top:40px; padding-bottom:40px; font-size: 24px; font-weight:300;">
@@ -39,15 +27,41 @@
                 <span style="float:right;">
                         <a href="#">Older Posts &#8594;</a>
                 </span>
-            </p>
+            </p>            
 
         </div>
     </body>
 </template>
 
 <script>
+import ApiService from "../../services/api/EMillerAnalytics/api";
 export default {
     name: 'Home',
+    props: {
+    },
+    created() {
+        this.apiService = ApiService.make();
+        this.getAllBlogPosts();
+        
+    },
+    data: function() {
+        return {
+            apiService: null,
+            changeLog: [],
+
+            allBlogPosts: {},
+        }
+    },
+    
+    methods: {
+        getAllBlogPosts(){
+            this.apiService.getAllBlogPosts().then(
+                response => {this.allBlogPosts = response['data']}
+            )
+        },
+    }
+
+
 }
 </script>
 

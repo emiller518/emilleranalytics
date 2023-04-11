@@ -226,7 +226,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" width="100%" height="200px" src="/img/blog/2016nbafinals1.jpg" alt="Card image cap">
+                            <img class="card-img-top" width="100%" height="200px" src="/img/home/blog1.png" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Blog Post 1</h5>
                                 <p class="card-text">My portfolio and blog built using a Digital Ocean server, Bootstrap, Django, and other languages and frameworks.</p>

@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GameNightAPIController;
+use App\Http\Controllers\API\D2MBBAPIController;
+use App\Http\Controllers\API\EMillerAnalyticsAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,7 @@ use App\Http\Controllers\API\GameNightAPIController;
 
 
 Route::prefix('/v1')->group(function() {
+
     Route::prefix('/gamenight')->controller(GameNightAPIController::class)->group(function(){
         Route::get('/get-all-games', 'getAllGames');
         Route::get('/get-all-players', 'getAllPlayers');
@@ -36,7 +39,15 @@ Route::prefix('/v1')->group(function() {
         Route::post('/add-new-game-mode', 'addNewGameMode');
         Route::post('/add-new-match', 'addNewMatch');
         Route::post('/add-new-accolade', 'addNewAccolade');
-
     });
-});
 
+    Route::prefix('/d2mbb')->controller(D2MBBAPIController::class)->group(function(){
+        // logic goes here
+    });
+
+    Route::prefix('/emilleranalytics')->controller(EMillerAnalyticsAPIController::class)->group(function(){
+        Route::get('/get-all-blog-posts', 'getAllBlogPosts');
+        Route::get('/get-all-portfolio-posts', 'getAllPortfolioPosts');
+    });
+
+});

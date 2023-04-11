@@ -23024,8 +23024,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _services_api_EMillerAnalytics_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/api/EMillerAnalytics/api */ "./resources/js/services/api/EMillerAnalytics/api.js");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home'
+  name: 'Home',
+  props: {},
+  created: function created() {
+    this.apiService = _services_api_EMillerAnalytics_api__WEBPACK_IMPORTED_MODULE_0__["default"].make();
+    this.getAllBlogPosts();
+  },
+  data: function data() {
+    return {
+      apiService: null,
+      changeLog: [],
+      allBlogPosts: {}
+    };
+  },
+  methods: {
+    getAllBlogPosts: function getAllBlogPosts() {
+      var _this = this;
+      this.apiService.getAllBlogPosts().then(function (response) {
+        _this.allBlogPosts = response['data'];
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -23075,8 +23097,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _services_api_EMillerAnalytics_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/api/EMillerAnalytics/api */ "./resources/js/services/api/EMillerAnalytics/api.js");
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home'
+  name: 'Home',
+  props: {},
+  created: function created() {
+    this.apiService = _services_api_EMillerAnalytics_api__WEBPACK_IMPORTED_MODULE_0__["default"].make();
+    this.getAllPortfolioPosts();
+  },
+  data: function data() {
+    return {
+      apiService: null,
+      changeLog: [],
+      allPortfolioPosts: {}
+    };
+  },
+  methods: {
+    getAllPortfolioPosts: function getAllPortfolioPosts() {
+      var _this = this;
+      this.apiService.getAllPortfolioPosts().then(function (response) {
+        _this.allPortfolioPosts = response['data'];
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -24055,10 +24099,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe&scoped=true":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe&scoped=true ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -24068,108 +24112,112 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "x container",
-  role: "main"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "col-lg-12 col-md-12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "about-head text-center"
-}, "About Me"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Welcome to my blog, my name is Ethan Miller, and over the last couple of years it’s been my goal to combine my passion for Python development, statistics, and sports into a fulfilling career. I spent the last two years at The College of Saint Rose working on master’s degrees in computer science and business analytics, and also worked with the men’s basketball team as a graduate assistant. Over that time, I’ve amassed an absurd amount of data from the NE10, CACC, and ECC conferences within the NCAA’s Division 2 East Region. Many of these posts will likely be a deeper dive on that data, but some other sports related data and Python projects will likely be touched on as well."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "In my free time, I’ve spent the last three years training to complete the World Marathon Majors for various charities with roughly $25,000 raised to date. I’ll be wrapping up my 6th and final race this fall as I head back to my home state to take on the New York City Marathon, becoming one of less than 5,000 people in the world to complete each major."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "img-spacing",
-  align: "center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "{% static 'admin/img/about/aboutme1.jpeg' %}",
-  "class": "center",
-  alt: "Pineapple"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "{% static 'admin/img/about/aboutme2.jpeg' %}",
-  "class": "center",
-  alt: "Pineapple"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  id: "professional"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Professional")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "height": "10px",
-    "font-size": "10px"
-  }
-}, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "saint-rose-mens-basketball---graduate-assistant-2017-19"
-}, "Saint Rose Men’s Basketball - Graduate Assistant (2017-19)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created scouting reports using a custom excel template and Synergy Software"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Responsible for advanced analytics & logging player +/- on a game and season basis"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created D2 East Region database for scouting using Python’s BeautifulSoup package and MySQL for advanced research and analysis (as seen on this site)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Ran "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "https://www.instagram.com/saintrosembb"
-}, "@saintrosembb"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" and created content using Adobe Photoshop and Sony Vegas")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created a scouting report web app using Django and the East Region database for future use")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "nalco-water--ecolab---data-analyst-intern-2018"
-}, "Nalco Water / Ecolab - Data Analyst Intern (2018)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Worked with a team of five interns to build software that benefits sales representatives"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created a model predicting attrition in accounts based on PowerBI data / models")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "american-national-insurance---software-developer-2015-17"
-}, "American National Insurance - Software Developer (2015-17)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created software for insurance lines using Duck Creek Author toolset"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Main developer of Workers Compensation line, deployed in May 2017")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "height": "10px",
-    "font-size": "30px"
-  }
-}, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  id: "education"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Education")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "height": "10px",
-    "font-size": "10px"
-  }
-}, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "the-college-of-saint-rose-class-of-2019"
-}, "The College of Saint Rose (Class of 2019)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  id: "master-of-science-business-analytics"
-}, "Master of Science, Business Analytics"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Statistics for business analytics"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Predictive modeling using SAS JMP and Knime Software"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Programming with large datasets using Python"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Database theory and design")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  id: "master-of-science-information-technology"
-}, "Master of Science, Information Technology"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Python programming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Data structures, algorithm analysis"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Artificial intelligence"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Object oriented programming (Java)")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "university-of-arkansas-class-of-2015"
-}, "University of Arkansas (Class of 2015)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
-  id: "bachelor-of-science-information-systems"
-}, "Bachelor of Science, Information Systems"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "height": "10px",
-    "font-size": "30px"
-  }
-}, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "img-spacing",
-  align: "center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "{% static 'admin/img/about/aboutme3.jpg' %}",
-  "class": "center",
-  alt: "Pineapple"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "{% static 'admin/img/about/aboutme4.jpg' %}",
-  "class": "center",
-  alt: "Pineapple"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "{% static 'admin/img/about/aboutme5.jpg' %}",
-  "class": "center",
-  alt: "Pineapple"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-  id: "personal"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Personal")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  style: {
-    "height": "10px",
-    "font-size": "10px"
-  }
-}, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "world-marathon-majors"
-}, "World Marathon Majors"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2017 Boston Marathon (4:26:05) - $5000+ raised, Dana Farber Cancer Institute"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2017 Chicago Marathon (3:58:45) - $2,000 raised, Endure to Cure"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2018 Tokyo Marathon (4:54:05) - $1,000 raised, Family House JP"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2018 Berlin Marathon (4:09:04) - $2,000 raised, Endure to Cure"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2019 London Marathon (3:59:12) - $13,500+ raised, Organization for Autism Research")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
-  id: "nba-jam-2k17-roster-hack"
-}, "NBA Jam 2k17 Roster Hack"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created an updated version of the SNES classic NBA Jam Tournament Edition with current rosters for the 2016-17 season"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "117 modern players with correct attributes and appearances, as well as historic players from the original game"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Featured on "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "https://kotaku.com/the-original-nba-jam-has-been-updated-for-2017-1791310883"
-}, "Kotaku"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "https://www.usatoday.com/story/tech/talkingtech/2017/01/18/how-play-nba-jam-2017-rosters/96728774/"
-}, "USA Today"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  href: "https://www.cbssports.com/nba/news/look-heres-how-you-can-download-play-nba-jam-with-todays-rosters/"
-}, "CBS Sports"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", and trending nationally on Facebook")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Download the rom in the links dropdown above!")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "img-spacing",
-  align: "center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("iframe", {
-  width: "480",
-  height: "420",
-  src: "https://www.youtube.com/embed/s8Oe5c_08-0"
-}, "\n")])])])], -1 /* HOISTED */);
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-9b8a0efe"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "x container",
+    role: "main"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "row"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "col-lg-12 col-md-12"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "text-center header"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+    "class": "intro"
+  }, "About Me"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " Welcome to my blog, my name is Ethan Miller, and over the last couple of years it's been my goal to combine my passion for Python development, statistics, and sports into a fulfilling career. I spent the last two years at The College of Saint Rose working on master’s degrees in computer science and business analytics, and also worked with the men’s basketball team as a graduate assistant. Over that time, I've amassed an absurd amount of data from the NE10, CACC, and ECC conferences within the NCAA's Division 2 East Region. Many of these posts will likely be a deeper dive on that data, but some other sports related data and Python projects will likely be touched on as well. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " In my free time, I've spent the last three years training to complete the World Marathon Majors for various charities with roughly $25,000 raised to date. I'll be wrapping up my 6th and final race this fall as I head back to my home state to take on the New York City Marathon, becoming one of less than 5,000 people in the world to complete each major. "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "img-margin text-center"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "/img/about/aboutme1.jpeg",
+    "class": "img-padding",
+    alt: "Pineapple"
+  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "/img/about/aboutme2.jpeg",
+    "class": "img-padding",
+    alt: "Pineapple"
+  })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+    id: "professional"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Professional")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    style: {
+      "height": "10px",
+      "font-size": "10px"
+    }
+  }, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "saint-rose-mens-basketball---graduate-assistant-2017-19"
+  }, "Saint Rose Men’s Basketball - Graduate Assistant (2017-19)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created scouting reports using a custom excel template and Synergy Software"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Responsible for advanced analytics & logging player +/- on a game and season basis"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created D2 East Region database for scouting using Python’s BeautifulSoup package and MySQL for advanced research and analysis (as seen on this site)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Ran "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "https://www.instagram.com/saintrosembb"
+  }, "@saintrosembb"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" and created content using Adobe Photoshop and Sony Vegas")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created a scouting report web app using Django and the East Region database for future use")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "nalco-water--ecolab---data-analyst-intern-2018"
+  }, "Nalco Water / Ecolab - Data Analyst Intern (2018)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Worked with a team of five interns to build software that benefits sales representatives"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created a model predicting attrition in accounts based on PowerBI data / models")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "american-national-insurance---software-developer-2015-17"
+  }, "American National Insurance - Software Developer (2015-17)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created software for insurance lines using Duck Creek Author toolset"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Main developer of Workers Compensation line, deployed in May 2017")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    style: {
+      "height": "10px",
+      "font-size": "30px"
+    }
+  }, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+    id: "education"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Education")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    style: {
+      "height": "10px",
+      "font-size": "10px"
+    }
+  }, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "the-college-of-saint-rose-class-of-2019"
+  }, "The College of Saint Rose (Class of 2019)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+    id: "master-of-science-business-analytics"
+  }, "Master of Science, Business Analytics"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Statistics for business analytics"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Predictive modeling using SAS JMP and Knime Software"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Programming with large datasets using Python"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Database theory and design")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+    id: "master-of-science-information-technology"
+  }, "Master of Science, Information Technology"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Python programming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Data structures, algorithm analysis"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Artificial intelligence"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Object oriented programming (Java)")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "university-of-arkansas-class-of-2015"
+  }, "University of Arkansas (Class of 2015)"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", {
+    id: "bachelor-of-science-information-systems"
+  }, "Bachelor of Science, Information Systems"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    style: {
+      "height": "10px",
+      "font-size": "30px"
+    }
+  }, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "img-margin text-center"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "/img/about/aboutme3.jpg",
+    "class": "img-padding",
+    alt: "Pineapple"
+  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "/img/about/aboutme4.jpg",
+    "class": "img-padding",
+    alt: "Pineapple"
+  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: "/img/about/aboutme5.jpg",
+    "class": "img-padding",
+    alt: "Pineapple"
+  })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+    id: "personal"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("u", null, "Personal")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    style: {
+      "height": "10px",
+      "font-size": "10px"
+    }
+  }, " "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "world-marathon-majors"
+  }, "World Marathon Majors"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2017 Boston Marathon (4:26:05) - $5000+ raised, Dana Farber Cancer Institute"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2017 Chicago Marathon (3:58:45) - $2,000 raised, Endure to Cure"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2018 Tokyo Marathon (4:54:05) - $1,000 raised, Family House JP"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2018 Berlin Marathon (4:09:04) - $2,000 raised, Endure to Cure"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "2019 London Marathon (3:59:12) - $13,500+ raised, Organization for Autism Research")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+    id: "nba-jam-2k17-roster-hack"
+  }, "NBA Jam 2k17 Roster Hack"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Created an updated version of the SNES classic NBA Jam Tournament Edition with current rosters for the 2016-17 season"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "117 modern players with correct attributes and appearances, as well as historic players from the original game"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Featured on "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "https://kotaku.com/the-original-nba-jam-has-been-updated-for-2017-1791310883"
+  }, "Kotaku"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "https://www.usatoday.com/story/tech/talkingtech/2017/01/18/how-play-nba-jam-2017-rosters/96728774/"
+  }, "USA Today"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "https://www.cbssports.com/nba/news/look-heres-how-you-can-download-play-nba-jam-with-todays-rosters/"
+  }, "CBS Sports"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(", and trending nationally on Facebook")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, "Download the rom in the links dropdown above!")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+    "class": "img-spacing text-center"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("iframe", {
+    width: "480",
+    height: "420",
+    src: "https://www.youtube.com/embed/s8Oe5c_08-0"
+  }, "\n              ")])])])], -1 /* HOISTED */);
+});
 var _hoisted_2 = [_hoisted_1];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, _hoisted_2);
@@ -24193,28 +24241,32 @@ __webpack_require__.r(__webpack_exports__);
 var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-72137ad0"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
-var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_1 = {
+  "class": "container",
+  role: "main"
+};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "container",
-    role: "main"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "text-center header"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
     "class": "intro"
   }, "My Blog"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "caption"
-  }, "A collection of blog posts related to travel, sports, and other experiences over the years")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "row blogpost"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "col-lg-4 blogimg",
-    style: {
-      "background-image": "url('/img/blog/2016nbafinals1.jpg')"
-    }
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "col-lg-8 blogtext"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Blog Title"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Posted on 4/9/2023"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("This is the pagehead! This is what I'm talking about "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  }, "A collection of blog posts related to travel, sports, and other experiences over the years")], -1 /* HOISTED */);
+});
+var _hoisted_3 = {
+  "class": "row blogpost"
+};
+var _hoisted_4 = {
+  "class": "col-lg-8 blogtext"
+};
+var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")], -1 /* HOISTED */);
+});
+var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "post-tags"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tags: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#"
@@ -24222,26 +24274,10 @@ var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
     href: "#"
   }, "Coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#"
-  }, "Soon")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "row blogpost"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "col-lg-4 blogimg",
-    style: {
-      "background-image": "url('/img/blog/2016nbafinals1.jpg')"
-    }
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "col-lg-8 blogtext"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Blog Title"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Posted on 4/9/2023"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("This is the pagehead! This is what I'm talking about "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "post-tags"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tags: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Tags"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Soon")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  }, "Soon")], -1 /* HOISTED */);
+});
+var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     style: {
       "text-align": "left",
       "padding-top": "40px",
@@ -24257,11 +24293,18 @@ var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
     }
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#"
-  }, "Older Posts →")])])], -1 /* HOISTED */);
+  }, "Older Posts →")])], -1 /* HOISTED */);
 });
-var _hoisted_2 = [_hoisted_1];
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, _hoisted_2);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.allBlogPosts, function (post) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": "col-lg-4 blogimg",
+      style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+        'background-image': 'url(/img/blog/' + post.Image + ')'
+      })
+    }, null, 4 /* STYLE */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.Title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Posted on " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.CreatedOn), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.PageHeader) + " ", 1 /* TEXT */), _hoisted_5]), _hoisted_6])]);
+  }), 256 /* UNKEYED_FRAGMENT */)), _hoisted_7])]);
 }
 
 /***/ }),
@@ -24313,7 +24356,7 @@ __webpack_require__.r(__webpack_exports__);
 var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-6726e39b"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-bs-ride=\"carousel\" data-bs-interval=\"10000\" data-v-6726e39b><div class=\"carousel-inner\" data-v-6726e39b><div class=\"carousel-item active\" data-v-6726e39b><img src=\"/img/home/carousel1.jpg\" class=\"carousel-image\" alt=\"...\" data-v-6726e39b><div class=\"carousel-caption text-center\" data-v-6726e39b><h1 class=\"carousel-caption-header\" data-v-6726e39b>Ethan Miller</h1><p class=\"carousel-caption-secondary\" data-v-6726e39b>Former Business Analyst - Miami Dolphins</p></div></div><div class=\"carousel-item\" data-v-6726e39b><img src=\"/img/home/carousel2.jpg\" class=\"carousel-image\" alt=\"...\" data-v-6726e39b><div class=\"carousel-caption text-center\" data-v-6726e39b><h1 class=\"carousel-caption-header\" data-v-6726e39b>Ethan Miller</h1><p class=\"carousel-caption-secondary\" data-v-6726e39b>Former Men&#39;s Basketball Graduate Assistant - College of Saint Rose</p></div></div><div class=\"carousel-item\" data-v-6726e39b><img src=\"/img/home/carousel3.jpg\" class=\"carousel-image\" alt=\"...\" data-v-6726e39b><div class=\"carousel-caption text-center\" data-v-6726e39b><h1 class=\"carousel-caption-header\" data-v-6726e39b>Ethan Miller</h1><p class=\"carousel-caption-secondary\" data-v-6726e39b>Abbot World Marathon Majors Six Star Finisher</p></div></div></div></div><section class=\"pb-5 bg-light\" data-v-6726e39b><div class=\"container\" data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-work.svg\" alt=\"card image\" data-v-6726e39b></p><h4 data-v-6726e39b>Experience</h4><li data-v-6726e39b>Sales &amp; Marketing Business Analyst, Miami Dolphins</li><li data-v-6726e39b>Data Analyst Intern, Ecolab</li><li data-v-6726e39b>Men&#39;s Basketball Graduate Assistant, Saint Rose</li><li data-v-6726e39b>Software Developer, American National Insurance</li></div></div><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-education.svg\" alt=\"card image\" data-v-6726e39b></p><h4 class=\"card-title\" data-v-6726e39b>Education</h4><p data-v-6726e39b> M.S. Computer Science <br data-v-6726e39b><i data-v-6726e39b>Saint Rose, 2019</i><br data-v-6726e39b> M.S. Business Analytics <br data-v-6726e39b><i data-v-6726e39b>Saint Rose, 2018</i><br data-v-6726e39b> B.S. Information Systems <br data-v-6726e39b><i data-v-6726e39b>University of Arkansas, 2015</i></p></div></div><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-running.svg\" alt=\"card image\" data-v-6726e39b></p><h4 class=\"card-title\" data-v-6726e39b>World Marathon Majors</h4><li data-v-6726e39b>Boston 2017 - 4:26:05</li><li data-v-6726e39b>Chicago 2017 - 3:58:45</li><li data-v-6726e39b>Tokyo 2018 - 4:54:05</li><li data-v-6726e39b>Berlin 2018 - 4:09:04</li><li data-v-6726e39b>London 2019 - 3:59:12</li><li data-v-6726e39b>NYC 2019 - 4:26:19</li></div></div><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-reading.svg\" alt=\"card image\" data-v-6726e39b></p><h4 class=\"card-title\" data-v-6726e39b>As Seen On..</h4><a href=\"https://www.news10.com/sports/ethan-millers-inspirational-journey/\" data-v-6726e39b>ABC News 10 Albany</a><br data-v-6726e39b><a href=\"https://www.youtube.com/watch?v=Jv8Jx8dEFAc\" data-v-6726e39b>1310 The Ticket Dallas</a><br data-v-6726e39b><a href=\"https://kotaku.com/the-original-nba-jam-has-been-updated-for-2017-1791310883\" data-v-6726e39b>Kotaku.com</a><br data-v-6726e39b><a href=\"https://www.theverge.com/2017/1/18/14311946/nba-jam-2017-players-rom-hack-lebron-james\" data-v-6726e39b>TheVerge.com</a><br data-v-6726e39b><a href=\"https://www.foxsports.com/nba/gallery/nba-jam-2k17-rosters-update-011817\" data-v-6726e39b>Foxsports.com</a><br data-v-6726e39b> Facebook Trends </div></div></div></div></section><div class=\"py-2 toppadding blurbmargins\" data-v-6726e39b><div class=\"container-fluid\" data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-6 align-self-center text-center\" data-v-6726e39b><img class=\"aboutmeimg\" src=\"/img/home/aboutme.jpg\" alt=\"Los Angeles\" data-v-6726e39b></div><div class=\"col-md-6 align-self-center toppadding btmpadding\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b>About Me</h1><p data-v-6726e39b></p><p data-v-6726e39b>After finishing my undegraduate degree at the University of Arkansas in 2015, I spent a couple of years as a software developer at an insurance company near my hometown. While it paid the bills, it was certainly a far cry from my calling in life. In the fall of 2017 I decided to give up a modest life of software development in the pursuit of a higher education at The College of Saint Rose. Ultimately, I had hoped to land a dream job combining software development and sports, two of my biggest passions.</p><p data-v-6726e39b>Shortly after graduation, my decision, along with hours upon hours of stalking the Teamwork Online website for new job postings, finally paid off, as I was hired as a Business Analyst with the Miami Dolphins where I currently work. I&#39;ve absolutely loved the opportunity to contribute to a world class sports organization in my short time on South Beach so far. It&#39;s been very cool to get to peek behind the curtains, and to get a chance see the fruits of our labor come to life every Sunday in the fall. </p><p data-v-6726e39b>In my free time, I enjoy following my favorite sports teams, working on software development projects, and soaking up a bit of Miami sun at the beach. I also train and participate in endurance events for charity, having raised over $35k completing the Abbott World Marathon Majors and Dolphins Cancer Challenge over the last few years. </p><div class=\"text-center\" data-v-6726e39b><a href=\"{% url &#39;aboutme&#39; %}\" data-v-6726e39b><button type=\"button\" class=\"btn btn-secondary text-center\" data-v-6726e39b>Read More</button></a></div></div></div></div></div><div class=\"album bg-light widemargins\" data-v-6726e39b><div class=\"container\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b><i data-v-6726e39b>Featured Projects</i></h1><br data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/featured1.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>EMillerAnalytics.com</h5><p class=\"card-text\" data-v-6726e39b>My portfolio and blog built using a Digital Ocean server, Bootstrap, Django, and other languages and frameworks.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/featured2.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>NE10 Recap Bot</h5><p class=\"card-text\" data-v-6726e39b>A Python bot that looks at a box score, generates a recap, and posts to a designated Twitter account.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/featured3.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>NBA Jam 2k17</h5><p class=\"card-text\" data-v-6726e39b>A modern update of the 1994 SNES classic NBA Jam T.E. featuring updated rosters and much more.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div></div></div></div><div class=\"py-2 toppadding blurbmargins\" data-v-6726e39b><div class=\"container-fluid\" data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-6 align-self-center toppadding btmpadding\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b>NCAA DII Basketball</h1><p data-v-6726e39b>Thanks to Coach Perno, during my time at The College of Saint Rose I was able to contribute to a first class men&#39;s basketball program where I served as a graduate assistant for two years. </p><p data-v-6726e39b>During this time, I was able to not only experience an NCAA tournament win and an exhibition game at the Carrier Dome, a place I&#39;d spent childhood nights rooting on my beloved Syracuse Orange, but I also applied much of what I learned in the classroom writing code and creating pieces of software to benefit the team. </p><p data-v-6726e39b>Here you will find the results of many of those projects, from various statistics and photos of players around the region, to different models and analysis of players and teams. Though my time with Saint Rose basketball has come to an end, my involvement with the region has not. I currently enjoy spending nights watching the Golden Knights, as well as learning new models and software development techniques utilizing my custom database containing over 10 years of games from around the region.</p><div class=\"text-center\" data-v-6726e39b><a href=\"/\" data-v-6726e39b><button type=\"button\" class=\"btn btn-secondary text-center\" data-v-6726e39b>See More</button></a></div></div><div class=\"col-md-6 align-self-center text-center\" data-v-6726e39b><img class=\"aboutmeimg\" src=\"/img/home/d2basketball.jpg\" alt=\"Los Angeles\" data-v-6726e39b></div></div></div></div><div class=\"album bg-light widemargins\" data-v-6726e39b><div class=\"container\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b><i data-v-6726e39b>Recent Blog Posts</i></h1><br data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/blog/2016nbafinals1.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>Blog Post 1</h5><p class=\"card-text\" data-v-6726e39b>My portfolio and blog built using a Digital Ocean server, Bootstrap, Django, and other languages and frameworks.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/blog2.png\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>Blog Post 2</h5><p class=\"card-text\" data-v-6726e39b>A Python bot that looks at a box score, generates a recap, and posts to a designated Twitter account.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/blog3.png\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>Blog Post 3</h5><p class=\"card-text\" data-v-6726e39b>A modern update of the 1994 SNES classic NBA Jam T.E. featuring updated rosters and much more.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div></div></div></div>", 6);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-bs-ride=\"carousel\" data-bs-interval=\"10000\" data-v-6726e39b><div class=\"carousel-inner\" data-v-6726e39b><div class=\"carousel-item active\" data-v-6726e39b><img src=\"/img/home/carousel1.jpg\" class=\"carousel-image\" alt=\"...\" data-v-6726e39b><div class=\"carousel-caption text-center\" data-v-6726e39b><h1 class=\"carousel-caption-header\" data-v-6726e39b>Ethan Miller</h1><p class=\"carousel-caption-secondary\" data-v-6726e39b>Former Business Analyst - Miami Dolphins</p></div></div><div class=\"carousel-item\" data-v-6726e39b><img src=\"/img/home/carousel2.jpg\" class=\"carousel-image\" alt=\"...\" data-v-6726e39b><div class=\"carousel-caption text-center\" data-v-6726e39b><h1 class=\"carousel-caption-header\" data-v-6726e39b>Ethan Miller</h1><p class=\"carousel-caption-secondary\" data-v-6726e39b>Former Men&#39;s Basketball Graduate Assistant - College of Saint Rose</p></div></div><div class=\"carousel-item\" data-v-6726e39b><img src=\"/img/home/carousel3.jpg\" class=\"carousel-image\" alt=\"...\" data-v-6726e39b><div class=\"carousel-caption text-center\" data-v-6726e39b><h1 class=\"carousel-caption-header\" data-v-6726e39b>Ethan Miller</h1><p class=\"carousel-caption-secondary\" data-v-6726e39b>Abbot World Marathon Majors Six Star Finisher</p></div></div></div></div><section class=\"pb-5 bg-light\" data-v-6726e39b><div class=\"container\" data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-work.svg\" alt=\"card image\" data-v-6726e39b></p><h4 data-v-6726e39b>Experience</h4><li data-v-6726e39b>Sales &amp; Marketing Business Analyst, Miami Dolphins</li><li data-v-6726e39b>Data Analyst Intern, Ecolab</li><li data-v-6726e39b>Men&#39;s Basketball Graduate Assistant, Saint Rose</li><li data-v-6726e39b>Software Developer, American National Insurance</li></div></div><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-education.svg\" alt=\"card image\" data-v-6726e39b></p><h4 class=\"card-title\" data-v-6726e39b>Education</h4><p data-v-6726e39b> M.S. Computer Science <br data-v-6726e39b><i data-v-6726e39b>Saint Rose, 2019</i><br data-v-6726e39b> M.S. Business Analytics <br data-v-6726e39b><i data-v-6726e39b>Saint Rose, 2018</i><br data-v-6726e39b> B.S. Information Systems <br data-v-6726e39b><i data-v-6726e39b>University of Arkansas, 2015</i></p></div></div><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-running.svg\" alt=\"card image\" data-v-6726e39b></p><h4 class=\"card-title\" data-v-6726e39b>World Marathon Majors</h4><li data-v-6726e39b>Boston 2017 - 4:26:05</li><li data-v-6726e39b>Chicago 2017 - 3:58:45</li><li data-v-6726e39b>Tokyo 2018 - 4:54:05</li><li data-v-6726e39b>Berlin 2018 - 4:09:04</li><li data-v-6726e39b>London 2019 - 3:59:12</li><li data-v-6726e39b>NYC 2019 - 4:26:19</li></div></div><div class=\"col-xs-12 col-sm-6 col-md-3 toppadding\" data-v-6726e39b><div class=\"text-center\" data-v-6726e39b><p data-v-6726e39b><img class=\"resizeicon\" src=\"/img/home/overview-reading.svg\" alt=\"card image\" data-v-6726e39b></p><h4 class=\"card-title\" data-v-6726e39b>As Seen On..</h4><a href=\"https://www.news10.com/sports/ethan-millers-inspirational-journey/\" data-v-6726e39b>ABC News 10 Albany</a><br data-v-6726e39b><a href=\"https://www.youtube.com/watch?v=Jv8Jx8dEFAc\" data-v-6726e39b>1310 The Ticket Dallas</a><br data-v-6726e39b><a href=\"https://kotaku.com/the-original-nba-jam-has-been-updated-for-2017-1791310883\" data-v-6726e39b>Kotaku.com</a><br data-v-6726e39b><a href=\"https://www.theverge.com/2017/1/18/14311946/nba-jam-2017-players-rom-hack-lebron-james\" data-v-6726e39b>TheVerge.com</a><br data-v-6726e39b><a href=\"https://www.foxsports.com/nba/gallery/nba-jam-2k17-rosters-update-011817\" data-v-6726e39b>Foxsports.com</a><br data-v-6726e39b> Facebook Trends </div></div></div></div></section><div class=\"py-2 toppadding blurbmargins\" data-v-6726e39b><div class=\"container-fluid\" data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-6 align-self-center text-center\" data-v-6726e39b><img class=\"aboutmeimg\" src=\"/img/home/aboutme.jpg\" alt=\"Los Angeles\" data-v-6726e39b></div><div class=\"col-md-6 align-self-center toppadding btmpadding\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b>About Me</h1><p data-v-6726e39b></p><p data-v-6726e39b>After finishing my undegraduate degree at the University of Arkansas in 2015, I spent a couple of years as a software developer at an insurance company near my hometown. While it paid the bills, it was certainly a far cry from my calling in life. In the fall of 2017 I decided to give up a modest life of software development in the pursuit of a higher education at The College of Saint Rose. Ultimately, I had hoped to land a dream job combining software development and sports, two of my biggest passions.</p><p data-v-6726e39b>Shortly after graduation, my decision, along with hours upon hours of stalking the Teamwork Online website for new job postings, finally paid off, as I was hired as a Business Analyst with the Miami Dolphins where I currently work. I&#39;ve absolutely loved the opportunity to contribute to a world class sports organization in my short time on South Beach so far. It&#39;s been very cool to get to peek behind the curtains, and to get a chance see the fruits of our labor come to life every Sunday in the fall. </p><p data-v-6726e39b>In my free time, I enjoy following my favorite sports teams, working on software development projects, and soaking up a bit of Miami sun at the beach. I also train and participate in endurance events for charity, having raised over $35k completing the Abbott World Marathon Majors and Dolphins Cancer Challenge over the last few years. </p><div class=\"text-center\" data-v-6726e39b><a href=\"{% url &#39;aboutme&#39; %}\" data-v-6726e39b><button type=\"button\" class=\"btn btn-secondary text-center\" data-v-6726e39b>Read More</button></a></div></div></div></div></div><div class=\"album bg-light widemargins\" data-v-6726e39b><div class=\"container\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b><i data-v-6726e39b>Featured Projects</i></h1><br data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/featured1.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>EMillerAnalytics.com</h5><p class=\"card-text\" data-v-6726e39b>My portfolio and blog built using a Digital Ocean server, Bootstrap, Django, and other languages and frameworks.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/featured2.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>NE10 Recap Bot</h5><p class=\"card-text\" data-v-6726e39b>A Python bot that looks at a box score, generates a recap, and posts to a designated Twitter account.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/featured3.jpg\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>NBA Jam 2k17</h5><p class=\"card-text\" data-v-6726e39b>A modern update of the 1994 SNES classic NBA Jam T.E. featuring updated rosters and much more.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div></div></div></div><div class=\"py-2 toppadding blurbmargins\" data-v-6726e39b><div class=\"container-fluid\" data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-6 align-self-center toppadding btmpadding\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b>NCAA DII Basketball</h1><p data-v-6726e39b>Thanks to Coach Perno, during my time at The College of Saint Rose I was able to contribute to a first class men&#39;s basketball program where I served as a graduate assistant for two years. </p><p data-v-6726e39b>During this time, I was able to not only experience an NCAA tournament win and an exhibition game at the Carrier Dome, a place I&#39;d spent childhood nights rooting on my beloved Syracuse Orange, but I also applied much of what I learned in the classroom writing code and creating pieces of software to benefit the team. </p><p data-v-6726e39b>Here you will find the results of many of those projects, from various statistics and photos of players around the region, to different models and analysis of players and teams. Though my time with Saint Rose basketball has come to an end, my involvement with the region has not. I currently enjoy spending nights watching the Golden Knights, as well as learning new models and software development techniques utilizing my custom database containing over 10 years of games from around the region.</p><div class=\"text-center\" data-v-6726e39b><a href=\"/\" data-v-6726e39b><button type=\"button\" class=\"btn btn-secondary text-center\" data-v-6726e39b>See More</button></a></div></div><div class=\"col-md-6 align-self-center text-center\" data-v-6726e39b><img class=\"aboutmeimg\" src=\"/img/home/d2basketball.jpg\" alt=\"Los Angeles\" data-v-6726e39b></div></div></div></div><div class=\"album bg-light widemargins\" data-v-6726e39b><div class=\"container\" data-v-6726e39b><h1 class=\"display-6 aligncenter\" data-v-6726e39b><i data-v-6726e39b>Recent Blog Posts</i></h1><br data-v-6726e39b><div class=\"row\" data-v-6726e39b><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/blog1.png\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>Blog Post 1</h5><p class=\"card-text\" data-v-6726e39b>My portfolio and blog built using a Digital Ocean server, Bootstrap, Django, and other languages and frameworks.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/blog2.png\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>Blog Post 2</h5><p class=\"card-text\" data-v-6726e39b>A Python bot that looks at a box score, generates a recap, and posts to a designated Twitter account.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div><div class=\"col-md-4\" data-v-6726e39b><div class=\"card mb-4 box-shadow\" data-v-6726e39b><img class=\"card-img-top\" width=\"100%\" height=\"200px\" src=\"/img/home/blog3.png\" alt=\"Card image cap\" data-v-6726e39b><div class=\"card-body\" data-v-6726e39b><h5 class=\"card-title\" data-v-6726e39b>Blog Post 3</h5><p class=\"card-text\" data-v-6726e39b>A modern update of the 1994 SNES classic NBA Jam T.E. featuring updated rosters and much more.</p><div class=\"d-flex justify-content-between align-items-center\" data-v-6726e39b><div class=\"btn-group\" data-v-6726e39b><button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" data-v-6726e39b>View</button></div><small class=\"text-muted\" data-v-6726e39b>9 mins</small></div></div></div></div></div></div></div>", 6);
 var _hoisted_7 = [_hoisted_1];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, _hoisted_7);
@@ -24337,83 +24380,57 @@ __webpack_require__.r(__webpack_exports__);
 var _withScopeId = function _withScopeId(n) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-9351789c"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
 };
-var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_1 = {
+  "class": "x container",
+  role: "main"
+};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "x container",
-    role: "main"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "text-center header"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
     "class": "intro"
   }, "My Portfolio"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "caption"
-  }, "Data science, sports analysis, python programming and more")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("article", {
-    "class": "post-preview"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-    "class": "post-title"
-  }, "D2 Basketball Stuff"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
-    "class": "post-subtitle"
-  }, "Hello this is the stuff that I'm posting"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "post-date"
-  }, "1/1/2023"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/img/portfolio/analysis.png",
-    "class": "post-img",
-    alt: "asdf"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" test "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "test.com"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "post-tags"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tags: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Tags"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Soon")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("article", {
-    "class": "post-preview"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
-    "class": "post-title"
-  }, "D2 Basketball Stuff"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
-    "class": "post-subtitle"
-  }, "Hello this is the stuff that I'm posting"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    "class": "post-date"
-  }, "1/1/2023"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: "/img/portfolio/analysis.png",
-    "class": "post-img",
-    alt: "asdf"
-  }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" test "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "test.com"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "post-tags"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tags: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Tags"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Soon")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "pagelinks"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-    style: {
-      "text-align": "left",
-      "padding-top": "40px",
-      "padding-bottom": "40px",
-      "font-size": "24px",
-      "font-weight": "30"
-    }
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "L Newer Posts"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    style: {
-      "float": "right"
-    }
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-    href: "#"
-  }, "Older Posts >")])])])], -1 /* HOISTED */);
+  }, "Data science, sports analysis, python programming and more")], -1 /* HOISTED */);
 });
-var _hoisted_2 = [_hoisted_1];
+var _hoisted_3 = {
+  "class": "post-preview"
+};
+var _hoisted_4 = {
+  "class": "post-title"
+};
+var _hoisted_5 = {
+  "class": "post-subtitle"
+};
+var _hoisted_6 = {
+  "class": "post-date"
+};
+var _hoisted_7 = ["src"];
+var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "#"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")], -1 /* HOISTED */);
+});
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "post-tags"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tags: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "#"
+  }, "Tags"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "#"
+  }, "Coming"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    href: "#"
+  }, "Soon")], -1 /* HOISTED */);
+});
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"pagelinks\" data-v-9351789c><p style=\"text-align:left;padding-top:40px;padding-bottom:40px;font-size:24px;font-weight:30;\" data-v-9351789c><a href=\"#\" data-v-9351789c>← Newer Posts</a><span style=\"float:right;\" data-v-9351789c><a href=\"#\" data-v-9351789c>Older Posts →</a></span></p></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, _hoisted_2);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.allPortfolioPosts, function (post) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.Title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.SubHeader), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.CreatedOn), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: '/img/portfolio/' + post.Image,
+      "class": "post-img",
+      alt: "asdf"
+    }, null, 8 /* PROPS */, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.PageHeader) + " ", 1 /* TEXT */), _hoisted_8]), _hoisted_9]);
+  }), 256 /* UNKEYED_FRAGMENT */)), _hoisted_10])]);
 }
 
 /***/ }),
@@ -25576,7 +25593,7 @@ var _hoisted_2 = {
   "class": "container"
 };
 var _hoisted_3 = {
-  "class": "navbar-nav ml-auto"
+  "class": "navbar-nav"
 };
 var _hoisted_4 = {
   "class": "nav-item {% if nbar == 'home' %}active{% endif %}"
@@ -25594,11 +25611,11 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "navbar-toggler-icon"
 })], -1 /* HOISTED */);
 var _hoisted_7 = {
-  "class": "collapse navbar-collapse",
+  "class": "collapse navbar-collapse justify-content-end",
   id: "navbarResponsive"
 };
 var _hoisted_8 = {
-  "class": "navbar-nav ml-auto"
+  "class": "navbar-nav mr-auto"
 };
 var _hoisted_9 = {
   "class": "nav-item {% if nbar == 'blog' %}active{% endif %}"
@@ -25838,6 +25855,63 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_14__.createRouter)({
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
+
+/***/ }),
+
+/***/ "./resources/js/services/api/EMillerAnalytics/api.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/services/api/EMillerAnalytics/api.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ApiService)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+var ApiService = /*#__PURE__*/function () {
+  function ApiService(baseUrl, baseEndpoint, version) {
+    _classCallCheck(this, ApiService);
+    this.baseEndpoint = baseEndpoint;
+    this.baseUrl = baseUrl;
+    this.version = version;
+  }
+  _createClass(ApiService, [{
+    key: "axios",
+    value: function axios() {
+      var axiosConfig = {
+        baseURL: "/".concat(this.baseUrl, "/v").concat(this.version, "/").concat(this.baseEndpoint)
+      };
+      return axios__WEBPACK_IMPORTED_MODULE_0___default().create(axiosConfig);
+    }
+  }, {
+    key: "getAllBlogPosts",
+    value: function getAllBlogPosts() {
+      return this.axios().get("/get-all-blog-posts");
+    }
+  }, {
+    key: "getAllPortfolioPosts",
+    value: function getAllPortfolioPosts() {
+      return this.axios().get("/get-all-portfolio-posts");
+    }
+  }], [{
+    key: "make",
+    value: function make() {
+      return new ApiService('api', 'emilleranalytics', 1);
+    }
+  }]);
+  return ApiService;
+}();
+
 
 /***/ }),
 
@@ -36592,6 +36666,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body {\n    padding-top: 30px;\n}", ""
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-9b8a0efe] {\n    margin-top: 60px;\n    margin-bottom: 90px;\n}\n.intro[data-v-9b8a0efe] {\n  font-size:80px;\n}\n.img-margin[data-v-9b8a0efe]{\n    margin-top: 50px;\n    margin-bottom: 50px;\n}\n.img-padding[data-v-9b8a0efe]{\n    padding-left:5px;\n    padding-right:5px;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/blog_home.vue?vue&type=style&index=0&id=72137ad0&scoped=true&lang=css":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/blog_home.vue?vue&type=style&index=0&id=72137ad0&scoped=true&lang=css ***!
@@ -37304,6 +37402,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_main_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_style_index_0_id_9b8a0efe_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_style_index_0_id_9b8a0efe_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_style_index_0_id_9b8a0efe_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -38037,15 +38165,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _about_vue_vue_type_template_id_9b8a0efe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about.vue?vue&type=template&id=9b8a0efe */ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe");
+/* harmony import */ var _about_vue_vue_type_template_id_9b8a0efe_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about.vue?vue&type=template&id=9b8a0efe&scoped=true */ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe&scoped=true");
 /* harmony import */ var _about_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./about.vue?vue&type=script&lang=js */ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=script&lang=js");
-/* harmony import */ var _home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _about_vue_vue_type_style_index_0_id_9b8a0efe_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css */ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css");
+/* harmony import */ var _home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_about_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_about_vue_vue_type_template_id_9b8a0efe__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/EMillerAnalytics/about.vue"]])
+
+
+const __exports__ = /*#__PURE__*/(0,_home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_about_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_about_vue_vue_type_template_id_9b8a0efe_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-9b8a0efe"],['__file',"resources/js/components/EMillerAnalytics/about.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -38804,18 +38935,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe&scoped=true":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe&scoped=true ***!
+  \******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_template_id_9b8a0efe__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_template_id_9b8a0efe_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_template_id_9b8a0efe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./about.vue?vue&type=template&id=9b8a0efe */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_template_id_9b8a0efe_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./about.vue?vue&type=template&id=9b8a0efe&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=template&id=9b8a0efe&scoped=true");
 
 
 /***/ }),
@@ -39069,6 +39200,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_d3_vue_vue_type_style_index_0_id_3a2190ba_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./d3.vue?vue&type=style&index=0&id=3a2190ba&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/GameNight/d3.vue?vue&type=style&index=0&id=3a2190ba&lang=scss");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_about_vue_vue_type_style_index_0_id_9b8a0efe_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/about.vue?vue&type=style&index=0&id=9b8a0efe&scoped=true&lang=css");
 
 
 /***/ }),
