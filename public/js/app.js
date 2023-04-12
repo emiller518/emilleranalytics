@@ -23153,8 +23153,907 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _services_api_SMBEditor_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/api/SMBEditor/api */ "./resources/js/services/api/SMBEditor/api.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'Home'
+  props: {
+    'options': {
+      required: true
+    }
+  },
+  created: function created() {
+    var _this = this;
+    this.apiService = _services_api_SMBEditor_api__WEBPACK_IMPORTED_MODULE_0__["default"].make();
+    // NEED FEEDBACK: Can I chain these together in the separate methods I created to update League & Team ?
+    this.apiService.getLeagues().then(function (response) {
+      _this.leagues = response['data'];
+      _this.selectedLeague = response['data'][0]['name'];
+      _this.apiService.getTeams(_this.selectedLeague).then(function (response) {
+        _this.teams = response['data'];
+        _this.selectedTeam = response['data'][0]['teamName'];
+        _this.apiService.getPlayers(_this.selectedTeam).then(function (response) {
+          _this.players = response['data'];
+        });
+      });
+    });
+  },
+  data: function data() {
+    return {
+      apiService: null,
+      changeLog: [],
+      leagues: [],
+      selectedLeague: null,
+      teams: [],
+      selectedTeam: null,
+      players: {},
+      optionTypes: ['Stats', 'Main', 'Head', 'Body', 'Gear', 'Swagger', 'Pitches'],
+      testing: null,
+      //NEED FEEDBACK: Is there a different file or something I could put this? Kind of an unnecessary wall of text here
+      //NEED FEEDBACK: For some reason when I'm trying to match the keys to the dropdown options, the types aren't compatible. Even if I put the keys in quotes it's still number type. Why? See: Line 36, used == for === for comparison
+      queryAttributes: {
+        gender: {
+          id: 0,
+          script: 'Visualization',
+          optionKey: '0',
+          Category: 'Main',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            0: 'Male',
+            1: 'Female'
+          }
+        },
+        playerId: {
+          id: 1,
+          script: null,
+          optionKey: 'baseballplayerlocalid',
+          Category: 'AlwaysOn',
+          Show: true,
+          Max: null,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        lineup: {
+          id: 2,
+          script: null,
+          optionKey: 'lineup',
+          Category: 'AlwaysOn',
+          Show: true,
+          Max: null,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        "throws": {
+          id: 4,
+          script: 'Visualization',
+          optionKey: '4',
+          Category: 'Main',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Left',
+            '1': 'Right'
+          }
+        },
+        bats: {
+          id: 5,
+          script: 'Visualization',
+          optionKey: '5',
+          Category: 'Main',
+          Show: false,
+          Max: 2,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Left',
+            '1': 'Right',
+            '2': 'Switch'
+          }
+        },
+        personality: {
+          id: 8,
+          script: 'Visualization',
+          optionKey: '8',
+          Category: 'Main',
+          Show: false,
+          Max: 6,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Competitive',
+            '1': 'Jolly',
+            '2': 'Droopy',
+            '3': 'Tough',
+            '4': 'Egotistical',
+            '5': 'Relaxed',
+            '6': 'Timid'
+          }
+        },
+        head: {
+          id: 12,
+          script: 'Visualization',
+          optionKey: '12',
+          Category: 'Head',
+          Show: false,
+          Max: 13,
+          MaxF: 6,
+          MaxM: null,
+          type: 'imglist'
+        },
+        eyebrows: {
+          id: 14,
+          script: 'Visualization',
+          optionKey: '14',
+          Category: 'Head',
+          Show: false,
+          Max: 3,
+          MaxF: 3,
+          MaxM: 2,
+          type: 'imglist'
+        },
+        hair: {
+          id: 15,
+          script: 'Visualization',
+          optionKey: '15',
+          Category: 'Head',
+          Show: false,
+          Max: 18,
+          MaxF: 9,
+          MaxM: null,
+          type: 'imglist'
+        },
+        facialHair: {
+          id: 16,
+          script: 'Visualization',
+          optionKey: '16',
+          Category: 'Head',
+          Show: false,
+          Max: 28,
+          MaxF: 0,
+          MaxM: null,
+          type: 'imglist'
+        },
+        eyeBlack: {
+          id: 17,
+          script: 'Visualization',
+          optionKey: '17',
+          Category: 'Head',
+          Show: false,
+          Max: 12,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        helmetTar: {
+          id: 18,
+          script: 'Visualization',
+          optionKey: '18',
+          Category: 'Gear',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Speck',
+            '1': 'Gobs'
+          }
+        },
+        eyeWear: {
+          id: 19,
+          script: 'Visualization',
+          optionKey: '19',
+          Category: 'Head',
+          Show: false,
+          Max: 15,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        number: {
+          id: 20,
+          script: 'Visualization',
+          optionKey: '20',
+          Category: 'Main',
+          Show: false,
+          Max: 100,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        physique: {
+          id: 22,
+          script: 'Visualization',
+          optionKey: '22',
+          Category: 'Main',
+          Show: false,
+          Max: 4,
+          MaxF: 1,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Athletic(F)',
+            '1': 'Petite(F)',
+            '2': 'Skinny(M)',
+            '3': 'Average(M)',
+            '4': 'Beefy(M)'
+          }
+        },
+        elbowGuard: {
+          id: 25,
+          script: 'Visualization',
+          optionKey: '25',
+          Category: 'Gear',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Off',
+            '1': 'On'
+          }
+        },
+        ankleGuard: {
+          id: 26,
+          script: 'Visualization',
+          optionKey: '26',
+          Category: 'Gear',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'Off',
+            '1': 'On'
+          }
+        },
+        undershirt: {
+          id: 27,
+          script: 'Visualization',
+          optionKey: '27',
+          Category: 'Body',
+          Show: false,
+          Max: 4,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'None',
+            '1': 'Shoulder',
+            '2': 'Elbow',
+            '3': 'Forearm',
+            '4': 'Wrist'
+          }
+        },
+        leftTattoo: {
+          id: 28,
+          script: 'Visualization',
+          optionKey: '28',
+          Category: 'Body',
+          Show: false,
+          Max: 14,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        rightTattoo: {
+          id: 29,
+          script: 'Visualization',
+          optionKey: '29',
+          Category: 'Body',
+          Show: false,
+          Max: 14,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        leftSleeve: {
+          id: 30,
+          script: 'Visualization',
+          optionKey: '30',
+          Category: 'Body',
+          Show: false,
+          Max: 9,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        rightSleeve: {
+          id: 31,
+          script: 'Visualization',
+          optionKey: '31',
+          Category: 'Body',
+          Show: false,
+          Max: 9,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        pants: {
+          id: 32,
+          script: 'Visualization',
+          optionKey: '32',
+          Category: 'Body',
+          Show: false,
+          Max: 3,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdownx'
+        },
+        wristband: {
+          id: 36,
+          script: 'Visualization',
+          optionKey: '36',
+          Category: 'Body',
+          Show: false,
+          Max: 3,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdownx'
+        },
+        battingGlove: {
+          id: 39,
+          script: 'Visualization',
+          optionKey: '39',
+          Category: 'Gear',
+          Show: false,
+          Max: 6,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        cleats: {
+          id: 40,
+          script: 'Visualization',
+          optionKey: '40',
+          Category: 'Body',
+          Show: false,
+          Max: 7,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        wristTape: {
+          id: 41,
+          script: 'Visualization',
+          optionKey: '41',
+          Category: 'Body',
+          Show: false,
+          Max: 8,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        windup: {
+          id: 48,
+          script: 'Visualization',
+          optionKey: '48',
+          Category: 'Swagger',
+          Show: false,
+          Max: 4,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        armAngle: {
+          id: 49,
+          script: 'Visualization',
+          optionKey: '49',
+          Category: 'Swagger',
+          Show: false,
+          Max: 3,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdownPosition',
+          dropdownOptions: {
+            'P': {
+              '0': 'Sub',
+              '1': 'Low',
+              '2': 'Mid',
+              '3': 'High'
+            },
+            'F': {
+              '3': 'N/A'
+            }
+          }
+        },
+        battingRoutine: {
+          id: 50,
+          script: 'Visualization',
+          optionKey: '50',
+          Category: 'Swagger',
+          Show: false,
+          Max: 14,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        battingStance: {
+          id: 51,
+          script: 'Visualization',
+          optionKey: '51',
+          Category: 'Swagger',
+          Show: false,
+          Max: 17,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        walkUpSong: {
+          id: 52,
+          script: 'Visualization',
+          optionKey: '52',
+          Category: 'Swagger',
+          Show: false,
+          Max: 104,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        portrait: {
+          id: 53,
+          script: 'Visualization',
+          optionKey: '53',
+          Category: 'null',
+          Show: false,
+          Max: 67,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        primaryPosition: {
+          id: 54,
+          script: 'Visualization',
+          optionKey: '54',
+          Category: 'Main',
+          Show: false,
+          Max: 13,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '1': 'P',
+            '2': 'C',
+            '3': '1B',
+            '4': 'C',
+            '5': '3B',
+            '6': 'SS',
+            '7': 'LF',
+            '8': 'CF',
+            '9': 'RF',
+            '10': 'IF',
+            '11': 'OF',
+            '12': '1B/OF',
+            '13': 'IF/OF'
+          }
+        },
+        secondaryPosition: {
+          id: 55,
+          script: 'Visualization',
+          optionKey: '55',
+          Category: 'Main',
+          Show: false,
+          Max: 13,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdownPosition',
+          dropdownOptions: {
+            'F': {
+              '0': null,
+              '1': 'P',
+              '2': 'C',
+              '3': '1B',
+              '4': 'C',
+              '5': '3B',
+              '6': 'SS',
+              '7': 'LF',
+              '8': 'CF',
+              '9': 'RF',
+              '10': 'IF',
+              '11': 'OF',
+              '12': '1B/OF',
+              '13': 'IF/OF'
+            },
+            'P': {
+              '1': 'SP',
+              '2': 'SP/RP',
+              '3': 'RP',
+              '4': 'CP'
+            }
+          }
+        },
+        positionType: {
+          id: 99,
+          script: null,
+          optionKey: '99',
+          Category: 'Hidden',
+          Show: false,
+          Max: null,
+          MaxF: null,
+          MaxM: null,
+          type: 'Hidden',
+          dropdownOptions: {
+            'P': 'Pitcher',
+            'F': 'Fielder'
+          }
+        },
+        pFourSeam: {
+          id: 58,
+          script: 'Visualization',
+          optionKey: '58',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pTwoSeam: {
+          id: 59,
+          script: 'Visualization',
+          optionKey: '59',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pScrewBall: {
+          id: 60,
+          script: 'Visualization',
+          optionKey: '60',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pChangeUp: {
+          id: 61,
+          script: 'Visualization',
+          optionKey: '61',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pForkBall: {
+          id: 62,
+          script: 'Visualization',
+          optionKey: '62',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pCurveBall: {
+          id: 63,
+          script: 'Visualization',
+          optionKey: '63',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pSlider: {
+          id: 64,
+          script: 'Visualization',
+          optionKey: '64',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        pCutFastBall: {
+          id: 65,
+          script: 'Visualization',
+          optionKey: '65',
+          Category: 'Pitches',
+          Show: false,
+          Max: 1,
+          MaxF: null,
+          MaxM: null,
+          type: 'dropdown',
+          dropdownOptions: {
+            '0': 'No',
+            '1': 'Yes'
+          }
+        },
+        first: {
+          id: 66,
+          script: 'Visualization',
+          optionKey: '66',
+          Category: 'AlwaysOn',
+          Show: true,
+          Max: 10,
+          MaxF: null,
+          MaxM: null,
+          type: 'string'
+        },
+        last: {
+          id: 67,
+          script: 'Visualization',
+          optionKey: '67',
+          Category: 'AlwaysOn',
+          Show: true,
+          Max: 10,
+          MaxF: null,
+          MaxM: null,
+          type: 'string'
+        },
+        batStyle: {
+          id: 92,
+          script: 'Visualization',
+          optionKey: '92',
+          Category: 'Gear',
+          Show: false,
+          Max: 5,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        batGrip: {
+          id: 93,
+          script: 'Visualization',
+          optionKey: '93',
+          Category: 'Gear',
+          Show: false,
+          Max: 3,
+          MaxF: null,
+          MaxM: null,
+          type: 'imglist'
+        },
+        helmetStyle: {
+          id: 104,
+          script: 'Visualization',
+          optionKey: '104',
+          Category: 'Gear',
+          Show: false,
+          Max: 3,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        power: {
+          id: 105,
+          script: 'Statistics',
+          optionKey: 'power',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        contact: {
+          id: 106,
+          script: 'Statistics',
+          optionKey: 'contact',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        speed: {
+          id: 107,
+          script: 'Statistics',
+          optionKey: 'speed',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        fielding: {
+          id: 108,
+          script: 'Statistics',
+          optionKey: 'fielding',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        arm: {
+          id: 109,
+          script: 'Statistics',
+          optionKey: 'arm',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        velocity: {
+          id: 110,
+          script: 'Statistics',
+          optionKey: 'velocity',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        junk: {
+          id: 111,
+          script: 'Statistics',
+          optionKey: 'junk',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        accuracy: {
+          id: 112,
+          script: 'Statistics',
+          optionKey: 'accuracy',
+          Category: 'Stats',
+          Show: true,
+          Max: 99,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        },
+        age: {
+          id: 113,
+          script: 'Statistics',
+          optionKey: 'age',
+          Category: 'Stats',
+          Show: true,
+          Max: 50,
+          MaxF: null,
+          MaxM: null,
+          type: 'int'
+        }
+      }
+    };
+  },
+  computed: {},
+  methods: {
+    updateStats: function updateStats(playerId, optionKey, optionValue) {
+      this.apiService.updateStats(playerId, optionKey, optionValue);
+    },
+    updateVisuals: function updateVisuals(playerId, optionKey, optionValue) {
+      this.apiService.updateVisuals(playerId, optionKey, optionValue);
+    },
+    newPendingChange: function newPendingChange(event, key, playerId) {
+      var script = this.queryAttributes[key]['script'];
+      var optionKey = this.queryAttributes[key]['optionKey'];
+      var optionValue = event.target.value;
+      var changeDict = {
+        'script': script,
+        'playerID': playerId,
+        'optionKey': optionKey,
+        'optionValue': optionValue
+      };
+      this.changeLog.push(changeDict);
+    },
+    submitChanges: function submitChanges() {
+      for (var i = 0; i < this.changeLog.length; i++) {
+        // Select the update script based on the column type, then clear the queue
+        var script = this.changeLog[i]['script'];
+        var playerId = this.changeLog[i]['playerID'];
+        var optionKey = this.changeLog[i]['optionKey'];
+        var optionValue = this.changeLog[i]['optionValue'];
+        // number is zero indexed, so if the option key is for number, add one to correct the value
+        if (optionKey === 20) {
+          optionValue += 1;
+        }
+        if (script === 'Visualization') {
+          this.updateVisuals(playerId, optionKey, optionValue);
+        } else if (script === 'Statistics') {
+          this.updateStats(playerId, optionKey, optionValue);
+        }
+      }
+      this.changeLog = [];
+    },
+    changeLeague: function changeLeague() {
+      var _this2 = this;
+      this.apiService.getTeams(this.selectedLeague).then(function (response) {
+        _this2.teams = response['data'];
+        _this2.selectedTeam = response['data'][0]['teamName'];
+        _this2.apiService.getPlayers(_this2.selectedTeam).then(function (response) {
+          _this2.players = response['data'];
+        });
+      });
+    },
+    changeTeam: function changeTeam() {
+      var _this3 = this;
+      this.apiService.getPlayers(this.selectedTeam).then(function (response) {
+        _this3.players = response['data'];
+      });
+    },
+    showHideColumns: function showHideColumns(event) {
+      for (var _i = 0, _Object$entries = Object.entries(this.queryAttributes); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+          key = _Object$entries$_i[0],
+          value = _Object$entries$_i[1];
+        if (value['Category'] === event.target.value || value['Category'] === 'AlwaysOn') {
+          value['Show'] = true;
+        } else {
+          value['Show'] = false;
+        }
+      }
+    },
+    showDropdown: function showDropdown(key, item) {
+      if (this.queryAttributes[key]['type'] === 'dropdown' && this.queryAttributes[key]['Show'] && item !== null) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    showNewDropdown: function showNewDropdown(key, item) {
+      if (this.queryAttributes[key]['type'] === 'dropdownPosition' && this.queryAttributes[key]['Show'] && item !== null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -24397,21 +25296,26 @@ var _hoisted_3 = {
   "class": "post-preview"
 };
 var _hoisted_4 = {
-  "class": "post-title"
+  "class": "row"
 };
 var _hoisted_5 = {
-  "class": "post-subtitle"
+  "class": "col-lg-10"
 };
 var _hoisted_6 = {
+  "class": "post-title"
+};
+var _hoisted_7 = {
+  "class": "post-subtitle"
+};
+var _hoisted_8 = {
   "class": "post-date"
 };
-var _hoisted_7 = ["src"];
-var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "[Read More]")], -1 /* HOISTED */);
 });
-var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "post-tags"
   }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tags: "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
@@ -24422,15 +25326,19 @@ var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
     href: "#"
   }, "Soon")], -1 /* HOISTED */);
 });
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"pagelinks\" data-v-9351789c><p style=\"text-align:left;padding-top:40px;padding-bottom:40px;font-size:24px;font-weight:30;\" data-v-9351789c><a href=\"#\" data-v-9351789c>← Newer Posts</a><span style=\"float:right;\" data-v-9351789c><a href=\"#\" data-v-9351789c>Older Posts →</a></span></p></div>", 1);
+var _hoisted_11 = {
+  "class": "col-lg-2"
+};
+var _hoisted_12 = ["src"];
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"pagelinks\" data-v-9351789c><p style=\"text-align:left;padding-top:40px;padding-bottom:40px;font-size:24px;font-weight:30;\" data-v-9351789c><a href=\"#\" data-v-9351789c>← Newer Posts</a><span style=\"float:right;\" data-v-9351789c><a href=\"#\" data-v-9351789c>Older Posts →</a></span></p></div>", 1);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_hoisted_2, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(this.allPortfolioPosts, function (post) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.Title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.SubHeader), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.CreatedOn), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("article", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.Title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.SubHeader), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.CreatedOn), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.PageHeader) + " ", 1 /* TEXT */), _hoisted_9]), _hoisted_10]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: '/img/portfolio/' + post.Image,
       "class": "post-img",
       alt: "asdf"
-    }, null, 8 /* PROPS */, _hoisted_7), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.PageHeader) + " ", 1 /* TEXT */), _hoisted_8]), _hoisted_9]);
-  }), 256 /* UNKEYED_FRAGMENT */)), _hoisted_10])]);
+    }, null, 8 /* PROPS */, _hoisted_12)])])]);
+  }), 256 /* UNKEYED_FRAGMENT */)), _hoisted_13])]);
 }
 
 /***/ }),
@@ -24466,10 +25374,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980&scoped=true":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980&scoped=true ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980 ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -24479,15 +25387,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _withScopeId = function _withScopeId(n) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-33c7c980"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+var _hoisted_1 = {
+  key: 0
 };
-var _hoisted_1 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "Update the super mega baseball editor from previous repo", -1 /* HOISTED */);
-});
-var _hoisted_2 = [_hoisted_1];
+var _hoisted_2 = ["onChange", "disabled", "value"];
+var _hoisted_3 = ["disabled"];
+var _hoisted_4 = ["value", "selected"];
+var _hoisted_5 = ["disabled"];
+var _hoisted_6 = ["value", "selected"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("body", null, _hoisted_2);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.selectedLeague = $event;
+    }),
+    onChange: _cache[1] || (_cache[1] = function () {
+      return $options.changeLeague && $options.changeLeague.apply($options, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            NEED FEEDBACK: Is naming it value['name'] like this best practice? Do I edit the query or change the for loop?"), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.leagues, function (league) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(league['name']), 1 /* TEXT */);
+  }), 256 /* UNKEYED_FRAGMENT */))], 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.selectedLeague]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.selectedTeam = $event;
+    }),
+    onChange: _cache[3] || (_cache[3] = function () {
+      return $options.changeTeam && $options.changeTeam.apply($options, arguments);
+    })
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.teams, function (team) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(team['teamName']), 1 /* TEXT */);
+  }), 256 /* UNKEYED_FRAGMENT */))], 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.selectedTeam]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    onChange: _cache[4] || (_cache[4] = function (event) {
+      return $options.showHideColumns(event);
+    })
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.optionTypes, function (option) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option), 1 /* TEXT */);
+  }), 256 /* UNKEYED_FRAGMENT */))], 32 /* HYDRATE_EVENTS */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.players[0], function (items, keys) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("th", null, [_ctx.queryAttributes[keys]['Show'] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("b", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(keys), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  }), 256 /* UNKEYED_FRAGMENT */))]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.players, function (items) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(items, function (item, key) {
+      return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                NEED FEEDBACK: Is a chain of different inputs / selects based on different logic the best way to go about this? "), _ctx.queryAttributes[key]['Show'] && _ctx.queryAttributes[key]['type'] !== 'dropdown' && _ctx.queryAttributes[key]['type'] !== 'dropdownPosition' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+        key: 0,
+        onChange: function onChange(event) {
+          return $options.newPendingChange(event, key, items['playerId']);
+        },
+        disabled: !_ctx.queryAttributes[key]['script'] || item === null,
+        value: item
+      }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_2)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.showDropdown(key, item) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
+        key: 1,
+        disabled: item === null
+      }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.queryAttributes[key]['dropdownOptions'], function (dropdownOption, dropdownKey) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          value: dropdownKey,
+          selected: item == dropdownKey
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dropdownOption), 9 /* TEXT, PROPS */, _hoisted_4);
+      }), 256 /* UNKEYED_FRAGMENT */))], 8 /* PROPS */, _hoisted_3)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.showNewDropdown(key, item) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
+        key: 2,
+        disabled: item === null
+      }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.queryAttributes[key]['dropdownOptions'][items['positionType']], function (dropdownOption, dropdownKey) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          value: dropdownKey,
+          selected: item == dropdownKey
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dropdownOption), 9 /* TEXT, PROPS */, _hoisted_6);
+      }), 256 /* UNKEYED_FRAGMENT */))], 8 /* PROPS */, _hoisted_5)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+    }), 256 /* UNKEYED_FRAGMENT */))]);
+  }), 256 /* UNKEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[5] || (_cache[5] = function () {
+      return $options.submitChanges && $options.submitChanges.apply($options, arguments);
+    }),
+    "class": "transition duration-200 text-xs font-medium focus:outline-none rounded py-1 px-3 mx-2"
+  }, " Save ")], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -26058,6 +27025,84 @@ var ApiService = /*#__PURE__*/function () {
     key: "make",
     value: function make() {
       return new ApiService('api', 'gamenight', 1);
+    }
+  }]);
+  return ApiService;
+}();
+
+
+/***/ }),
+
+/***/ "./resources/js/services/api/SMBEditor/api.js":
+/*!****************************************************!*\
+  !*** ./resources/js/services/api/SMBEditor/api.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ApiService)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+var ApiService = /*#__PURE__*/function () {
+  function ApiService(baseUrl, baseEndpoint, version) {
+    _classCallCheck(this, ApiService);
+    this.baseEndpoint = baseEndpoint;
+    this.baseUrl = baseUrl;
+    this.version = version;
+  }
+  _createClass(ApiService, [{
+    key: "axios",
+    value: function axios() {
+      var axiosConfig = {
+        baseURL: "/".concat(this.baseUrl, "/v").concat(this.version, "/").concat(this.baseEndpoint)
+      };
+      return axios__WEBPACK_IMPORTED_MODULE_0___default().create(axiosConfig);
+    }
+  }, {
+    key: "updateVisuals",
+    value: function updateVisuals(id, optionKey, optionValue) {
+      return this.axios().put("/update-visuals/".concat(id), {
+        optionKey: optionKey,
+        optionValue: optionValue
+      });
+    }
+  }, {
+    key: "updateStats",
+    value: function updateStats(id, optionKey, optionValue) {
+      return this.axios().put("/update-stats/".concat(id), {
+        optionKey: optionKey,
+        optionValue: optionValue
+      });
+    }
+  }, {
+    key: "getLeagues",
+    value: function getLeagues() {
+      return this.axios().get("/get-leagues");
+    }
+  }, {
+    key: "getTeams",
+    value: function getTeams(league) {
+      return this.axios().get("/get-teams/".concat(league));
+    }
+  }, {
+    key: "getPlayers",
+    value: function getPlayers(team) {
+      return this.axios().get("/get-players/".concat(team));
+    }
+  }], [{
+    key: "make",
+    value: function make() {
+      return new ApiService('api', 'smb', 1);
     }
   }]);
   return ApiService;
@@ -36779,7 +37824,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-9351789c] {\n    margin-top: 60px;\n    margin-bottom: 90px;\n}\n.intro[data-v-9351789c] {\n  font-size:80px;\n}\nspan.caption[data-v-9351789c] {\n    font-size: 27px;\n    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    font-weight: 300;\n}\n.post-preview[data-v-9351789c]{\n    border-bottom:1px solid #eee;\n    padding-top: 50px;\n    padding-bottom: 50px;\n}\n.post-preview[data-v-9351789c]:last-child{\n    border-bottom: 0px;\n    margin-bottom: 50px;\n}\n.post-title[data-v-9351789c]{\n    font-size:36px;\n    margin-top:0px;\n    font-weight:800;\n}\n.post-subtitle[data-v-9351789c]{\n    margin:0;\n    font-weight:300;\n    margin-bottom:10px;\n}\n.post-date[data-v-9351789c]{\n    color:#808080;\n    font-size:18px;\n    font-style:italic;\n    margin: 0 0 10px;\n    font-family:'Lora', 'Times New Roman', serif;\n}\n.post-tags[data-v-9351789c]{\n    margin-top:10px;\n    margin-bottom:0;\n    font-size:15px;\n    color:#999\n}\n.post-tags a[data-v-9351789c]{\n    padding: 0px 5px;\n}\n.pagelinks[data-v-9351789c]{\n    padding: 40px;\n    margin: 40px;\n}\n.post-img[data-v-9351789c]{\n    border-radius: 50%;\n    height: 192px;\n    width: 192px;\n    float: right;\n    margin-left: 30px;\n    margin-top: -130px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-9351789c] {\n    margin-top: 60px;\n    margin-bottom: 90px;\n}\n.intro[data-v-9351789c] {\n  font-size:80px;\n}\nspan.caption[data-v-9351789c] {\n    font-size: 27px;\n    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    font-weight: 300;\n}\n.post-preview[data-v-9351789c]{\n    border-bottom:1px solid #eee;\n    padding-top: 50px;\n    padding-bottom: 50px;\n}\n.post-preview[data-v-9351789c]:last-child{\n    border-bottom: 0px;\n    margin-bottom: 50px;\n}\n.post-title[data-v-9351789c]{\n    font-size:36px;\n    margin-top:0px;\n    font-weight:800;\n}\n.post-subtitle[data-v-9351789c]{\n    margin:0;\n    font-weight:300;\n    margin-bottom:10px;\n}\n.post-date[data-v-9351789c]{\n    color:#808080;\n    font-size:18px;\n    font-style:italic;\n    margin: 0 0 10px;\n    font-family:'Lora', 'Times New Roman', serif;\n}\n.post-tags[data-v-9351789c]{\n    margin-top:10px;\n    margin-bottom:0;\n    font-size:15px;\n    color:#999\n}\n.post-tags a[data-v-9351789c]{\n    padding: 0px 5px;\n}\n.pagelinks[data-v-9351789c]{\n    padding: 40px;\n    margin: 40px;\n}\n.post-img[data-v-9351789c]{\n    border-radius: 50%;\n    height: 192px;\n    width: 192px;\n    float: right;\n    margin-left: 30px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36804,30 +37849,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\ndiv[data-v-00711ef3] {\n    background-color: coral;\n    color: white;\n}\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv[data-v-33c7c980] {\n    background-color: coral;\n    color: white;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37585,36 +38606,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_style_index_0_id_33c7c980_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_style_index_0_id_33c7c980_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_style_index_0_id_33c7c980_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/GameNight/about.vue?vue&type=style&index=0&id=5e2055e9&scoped=true&lang=css":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/GameNight/about.vue?vue&type=style&index=0&id=5e2055e9&scoped=true&lang=css ***!
@@ -38351,18 +39342,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _smb_editor_vue_vue_type_template_id_33c7c980_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./smb_editor.vue?vue&type=template&id=33c7c980&scoped=true */ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980&scoped=true");
+/* harmony import */ var _smb_editor_vue_vue_type_template_id_33c7c980__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./smb_editor.vue?vue&type=template&id=33c7c980 */ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980");
 /* harmony import */ var _smb_editor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./smb_editor.vue?vue&type=script&lang=js */ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=script&lang=js");
-/* harmony import */ var _smb_editor_vue_vue_type_style_index_0_id_33c7c980_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css */ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css");
-/* harmony import */ var _home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-
-
-const __exports__ = /*#__PURE__*/(0,_home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_smb_editor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_smb_editor_vue_vue_type_template_id_33c7c980_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-33c7c980"],['__file',"resources/js/components/EMillerAnalytics/smb_editor.vue"]])
+const __exports__ = /*#__PURE__*/(0,_home_emiller_projects_emilleranalytics_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_smb_editor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_smb_editor_vue_vue_type_template_id_33c7c980__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/EMillerAnalytics/smb_editor.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -39031,18 +40019,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980&scoped=true":
-/*!***********************************************************************************************************!*\
-  !*** ./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980&scoped=true ***!
-  \***********************************************************************************************************/
+/***/ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980 ***!
+  \***********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_template_id_33c7c980_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_template_id_33c7c980__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_template_id_33c7c980_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./smb_editor.vue?vue&type=template&id=33c7c980&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980&scoped=true");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_template_id_33c7c980__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./smb_editor.vue?vue&type=template&id=33c7c980 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=template&id=33c7c980");
 
 
 /***/ }),
@@ -39278,19 +40266,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_portfolio_post_vue_vue_type_style_index_0_id_00711ef3_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./portfolio_post.vue?vue&type=style&index=0&id=00711ef3&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/portfolio_post.vue?vue&type=style&index=0&id=00711ef3&scoped=true&lang=css");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css":
-/*!*************************************************************************************************************************!*\
-  !*** ./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css ***!
-  \*************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_smb_editor_vue_vue_type_style_index_0_id_33c7c980_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/EMillerAnalytics/smb_editor.vue?vue&type=style&index=0&id=33c7c980&scoped=true&lang=css");
 
 
 /***/ }),

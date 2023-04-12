@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\GameNightAPIController;
 use App\Http\Controllers\API\D2MBBAPIController;
 use App\Http\Controllers\API\EMillerAnalyticsAPIController;
+use App\Http\Controllers\API\SMBEditorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,14 @@ Route::prefix('/v1')->group(function() {
     Route::prefix('/emilleranalytics')->controller(EMillerAnalyticsAPIController::class)->group(function(){
         Route::get('/get-all-blog-posts', 'getAllBlogPosts');
         Route::get('/get-all-portfolio-posts', 'getAllPortfolioPosts');
+    });
+
+    Route::prefix('/smb')->controller(SMBEditorController::class)->group(function(){
+        Route::put('update-stats/{id}', 'updateStats');
+        Route::put('update-visuals/{id}', 'updateVisuals');
+        Route::get('get-leagues', 'getLeagues');
+        Route::get('get-teams/{league}', 'getTeams');
+        Route::get('get-players/{team}', 'getPlayers');
     });
 
 });

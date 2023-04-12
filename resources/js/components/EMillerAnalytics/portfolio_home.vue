@@ -9,15 +9,25 @@
             </div>
 
             <article v-for="(post) in this.allPortfolioPosts" class="post-preview">
-                <h2 class="post-title">{{post.Title}}</h2>
-                <h3 class="post-subtitle">{{post.SubHeader}}</h3>
-                <p class="post-date">{{post.CreatedOn}}</p>
+                <div class="row">
+                    
+                    <div class="col-lg-10">
+                        <h2 class="post-title">{{post.Title}}</h2>
+                        <h3 class="post-subtitle">{{post.SubHeader}}</h3>
+                        <p class="post-date">{{post.CreatedOn}}</p>
 
-                <p><img v-bind:src="'/img/portfolio/' + post.Image" class="post-img" alt="asdf">
-                    {{post.PageHeader}}&nbsp;<a href="#"><b>[Read More]</b></a>
-                </p>
+                        <p>
+                            {{post.PageHeader}}&nbsp;<a href="#"><b>[Read More]</b></a>
+                        </p>
 
-                <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
+                        <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img v-bind:src="'/img/portfolio/' + post.Image" class="post-img" alt="asdf">
+                    </div>
+
+                </div>
             </article>
 
             <div class="pagelinks">
@@ -124,6 +134,5 @@ span.caption {
     width: 192px;
     float: right;
     margin-left: 30px;
-    margin-top: -130px;
 }
 </style>
