@@ -15,9 +15,9 @@
                 <div class="col-lg-8 blogtext">
                     <h3>{{post.Title}}</h3>
                     <p>Posted on {{post.CreatedOn}}</p>
-                    <p>{{post.PageHeader}}&nbsp;<a href="#"><b>[Read More]</b></a></p>
+                    <p>{{post.PageHeader}}&nbsp;<a :href="'blog/' + post.Slug"><b>[Read More]</b></a></p>
 
-                    <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>
+                    <!-- <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div> -->
                 </div>
                 
             </div>
@@ -108,5 +108,4 @@ span.caption {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
 }
-
 </style>

@@ -1,0 +1,161 @@
+
+<html>
+<head>
+    <title>Scout Generator</title>
+    <script>
+        function ClearFields() {
+
+         document.getElementsByName("P1Num")[0].value = "";
+         document.getElementsByName("P1Pm")[0].value = "";
+         document.getElementsByName("P1Pa")[0].value = "";
+         document.getElementsByName("P2Num")[0].value = "";
+         document.getElementsByName("P2Pm")[0].value = "";
+         document.getElementsByName("P2Pa")[0].value = "";
+         document.getElementsByName("P3Num")[0].value = "";
+         document.getElementsByName("P3Pm")[0].value = "";
+         document.getElementsByName("P3Pa")[0].value = "";
+         document.getElementsByName("P4Num")[0].value = "";
+         document.getElementsByName("P4Pm")[0].value = "";
+         document.getElementsByName("P4Pa")[0].value = "";
+         document.getElementsByName("P5Num")[0].value = "";
+         document.getElementsByName("P5Pm")[0].value = "";
+         document.getElementsByName("P5Pa")[0].value = "";
+         document.getElementsByName("P6Num")[0].value = "";
+         document.getElementsByName("P6Pm")[0].value = "";
+         document.getElementsByName("P6Pa")[0].value = "";
+         document.getElementsByName("P7Num")[0].value = "";
+         document.getElementsByName("P7Pm")[0].value = "";
+         document.getElementsByName("P7Pa")[0].value = "";
+         document.getElementsByName("P8Num")[0].value = "";
+         document.getElementsByName("P8Pm")[0].value = "";
+         document.getElementsByName("P8Pa")[0].value = "";
+         document.getElementsByName("P9Num")[0].value = "";
+         document.getElementsByName("P9Pm")[0].value = "";
+         document.getElementsByName("P9Pa")[0].value = "";
+         document.getElementsByName("P10Num")[0].value = "";
+         document.getElementsByName("P10Pm")[0].value = "";
+         document.getElementsByName("P10Pa")[0].value = "";
+         document.getElementsByName("P11Num")[0].value = "";
+         document.getElementsByName("P11Pm")[0].value = "";
+         document.getElementsByName("P11Pa")[0].value = "";
+         document.getElementsByName("TPm")[0].value = "";
+         document.getElementsByName("TPa")[0].value = "";
+
+        }
+
+        function SampleData() {
+        document.getElementsByName("Team")[0].value = "STR";
+
+         document.getElementsByName("P1Num")[0].value = 5;
+         document.getElementsByName("P1Pm")[0].value = 17;
+         document.getElementsByName("P1Pa")[0].value = 32;
+         document.getElementsByName("P2Num")[0].value = 2;
+         document.getElementsByName("P2Pm")[0].value = 61;
+         document.getElementsByName("P2Pa")[0].value = 128;
+         document.getElementsByName("P3Num")[0].value = 35;
+         document.getElementsByName("P3Pm")[0].value = 45;
+         document.getElementsByName("P3Pa")[0].value = 68;
+         document.getElementsByName("P4Num")[0].value = 21;
+         document.getElementsByName("P4Pm")[0].value = 108;
+         document.getElementsByName("P4Pa")[0].value = 180;
+         document.getElementsByName("P5Num")[0].value = 3;
+         document.getElementsByName("P5Pm")[0].value = 213;
+         document.getElementsByName("P5Pa")[0].value = 391;
+         document.getElementsByName("P6Num")[0].value = 1;
+         document.getElementsByName("P6Pm")[0].value = 22;
+         document.getElementsByName("P6Pa")[0].value = 49;
+         document.getElementsByName("P7Num")[0].value = 15;
+         document.getElementsByName("P7Pm")[0].value = 24;
+         document.getElementsByName("P7Pa")[0].value = 55;
+         document.getElementsByName("P8Num")[0].value = 4;
+         document.getElementsByName("P8Pm")[0].value = 13;
+         document.getElementsByName("P8Pa")[0].value = 30;
+         document.getElementsByName("P9Num")[0].value = 22;
+         document.getElementsByName("P9Pm")[0].value = 0;
+         document.getElementsByName("P9Pa")[0].value = 1;
+         document.getElementsByName("P10Num")[0].value = 20;
+         document.getElementsByName("P10Pm")[0].value = 0;
+         document.getElementsByName("P10Pa")[0].value = 0;
+         document.getElementsByName("P11Num")[0].value = 10;
+         document.getElementsByName("P11Pm")[0].value = 1;
+         document.getElementsByName("P11Pa")[0].value = 1;
+         document.getElementsByName("TPm")[0].value = 505;
+         document.getElementsByName("TPa")[0].value = 938;
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>Automatic Scout Generator</h1>
+    <form action={% url 'download' %} method="POST">
+        {% csrf_token %}
+        <select name="Team">
+            {% for Team in Teams %}
+                {% if Team.abbreviation %}
+                    <option value={{ Team.abbreviation }}>{{ Team.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <br/>
+        <br/>
+    <pre>Player # &#9; &nbsp; Paint Makes         Paint Attempts</pre>
+        <input type="text" name="P1Num">
+        <input type="text" name="P1Pm">
+        <input type="text" name="P1Pa">
+        <br/>
+        <input type="text" name="P2Num">
+        <input type="text" name="P2Pm">
+        <input type="text" name="P2Pa">
+        <br/>
+        <input type="text" name="P3Num">
+        <input type="text" name="P3Pm">
+        <input type="text" name="P3Pa">
+        <br/>
+        <input type="text" name="P4Num">
+        <input type="text" name="P4Pm">
+        <input type="text" name="P4Pa">
+        <br/>
+        <input type="text" name="P5Num">
+        <input type="text" name="P5Pm">
+        <input type="text" name="P5Pa">
+        <br/>
+        <input type="text" name="P6Num">
+        <input type="text" name="P6Pm">
+        <input type="text" name="P6Pa">
+        <br/>
+        <input type="text" name="P7Num">
+        <input type="text" name="P7Pm">
+        <input type="text" name="P7Pa">
+        <br/>
+        <input type="text" name="P8Num">
+        <input type="text" name="P8Pm">
+        <input type="text" name="P8Pa">
+        <br/>
+        <input type="text" name="P9Num">
+        <input type="text" name="P9Pm">
+        <input type="text" name="P9Pa">
+        <br/>
+        <input type="text" name="P10Num">
+        <input type="text" name="P10Pm">
+        <input type="text" name="P10Pa">
+        <br/>
+        <input type="text" name="P11Num">
+        <input type="text" name="P11Pm">
+        <input type="text" name="P11Pa">
+        <br/>
+        <br/>
+        <pre>Team Paint Makes    Team Paint Attempts</pre>
+        <input type="text" name="TPm">
+        <input type="text" name="TPa">
+        <br/>
+        <br/>
+
+        <input type="button" onclick="SampleData();" value="Example Data">
+        <input type="button" onclick="ClearFields();" value="Clear">
+        <input type="submit" value="Download">
+    </form>
+
+
+</body>
+</html>

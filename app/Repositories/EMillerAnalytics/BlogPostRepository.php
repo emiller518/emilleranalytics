@@ -17,5 +17,12 @@ class BlogPostRepository
             ->get();
     }
 
+    public function getBlogPost($slug)
+    {
+        return BlogPost::query()
+            ->where(BlogPost::FIELD_SLUG, '=', $slug)
+            ->get()[0];
+    }
+
 
 }

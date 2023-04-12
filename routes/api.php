@@ -49,6 +49,8 @@ Route::prefix('/v1')->group(function() {
     Route::prefix('/emilleranalytics')->controller(EMillerAnalyticsAPIController::class)->group(function(){
         Route::get('/get-all-blog-posts', 'getAllBlogPosts');
         Route::get('/get-all-portfolio-posts', 'getAllPortfolioPosts');
+        Route::get('/get-portfolio-post/{slug}', 'getPortfolioPost');
+        Route::get('/get-blog-post/{slug}', 'getBlogPost');
     });
 
     Route::prefix('/smb')->controller(SMBEditorController::class)->group(function(){

@@ -17,7 +17,7 @@
                         <p class="post-date">{{post.CreatedOn}}</p>
 
                         <p>
-                            {{post.PageHeader}}&nbsp;<a href="#"><b>[Read More]</b></a>
+                            {{post.PageHeader}}&nbsp;<a :href="'portfolio/' + post.Slug"><b>[Read More]</b></a>
                         </p>
 
                         <div class="post-tags">Tags: <a href="#">Tags</a> <a href="#">Coming</a> <a href="#">Soon</a></div>

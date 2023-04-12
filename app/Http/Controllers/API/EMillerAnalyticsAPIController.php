@@ -28,4 +28,12 @@ class EMillerAnalyticsAPIController extends Controller
         return $this->portfolioPostRepository->getAllPortfolioPosts();
     }
 
+    public function getBlogPost($slug){
+        return $this->blogPostRepository->getBlogPost($slug);
+    }
+
+    public function getPortfolioPost($slug){
+        return $this->portfolioPostRepository->getPortfolioPost($slug);
+    }
+
 }

@@ -17,5 +17,12 @@ class PortfolioPostRepository
             ->get();
     }
 
+    public function getPortfolioPost($slug)
+    {
+        return PortfolioPost::query()
+            ->where(PortfolioPost::FIELD_SLUG, '=', $slug)
+            ->get()[0];
+    }
+
 
 }

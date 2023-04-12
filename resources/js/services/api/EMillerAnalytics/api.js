@@ -20,13 +20,20 @@ export default class ApiService {
     }
 
 
-
     getAllBlogPosts(){
         return this.axios().get(`/get-all-blog-posts`)
     }
 
     getAllPortfolioPosts(){
         return this.axios().get(`/get-all-portfolio-posts`)
+    }
+
+    getBlogPostFromSlug(slug){
+        return this.axios().get(`/get-blog-post/${slug}`)
+    }
+
+    getPortfolioPostFromSlug(slug){
+        return this.axios().get(`/get-portfolio-post/${slug}`)
     }
 
 }

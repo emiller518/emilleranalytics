@@ -1,4 +1,5 @@
 <template>
+    <div>hello!</div>
     <Header />
     <router-view />
     <Footer />
